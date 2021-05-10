@@ -36,8 +36,7 @@ Open your web browser to http://localhost:3000/
 ```
 docker-compose build
 docker-compose up
-
-
+```
 ## Application screenshot
 
 ![Screenshot of the app](/react-screen.png?raw=true "DEMO")
