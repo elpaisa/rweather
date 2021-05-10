@@ -5,7 +5,7 @@
 2. React with redux
 3. Redis to cache
 
-## To Run the application you need set the .env file in the application root
+## To Run the application you need set the .env file in the server/ folder
 ```
   PORT=8001
   WEATHER_API_KEY=YOUR_API_KEY
