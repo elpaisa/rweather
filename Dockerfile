@@ -13,13 +13,13 @@ COPY . /app
 
 WORKDIR /app/server
 RUN ls -la
-RUN npm i
+RUN npm run init
 RUN npm run build
 
 
 # check files list
 RUN ls -a
 
-EXPOSE 8080
+EXPOSE 8001
 
 CMD [ "node", "./index.js" ]

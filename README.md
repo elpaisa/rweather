@@ -22,8 +22,12 @@
 
 ## To Run the application on Development
 ```
+cd server
 npm i
 npm run init
+npm run start
+
+cd react
 npm run start
 
 Open your web browser to http://localhost:3000/
@@ -34,8 +38,8 @@ Open your web browser to http://localhost:3000/
 1. Install Docker https://www.docker.com/community-edition#/download
 2. Run these commands:
 ```
-docker-compose build
-docker-compose up
+docker build -t weather-app .
+docker run -it -p 8001:8001 weather-app
 ```
 ## Application screenshot
 
