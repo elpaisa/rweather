@@ -1,0 +1,31 @@
+{
+  "name": "@elpaisa/reweather",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1",
+    "gh-pages": "^3.0.0",
+    "node-fetch": "^2.6.1",
+    "redis-connection-pool": "^1.7.3"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "init": "npm i && cd ../react && npm i",
+    "build": "npm run lint && cd ../react && npm run build",
+    "lint": "node_modules/.bin/eslint . --fix"
+  },
+  "homepage": "http://github.com/elpaisa",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "prettier": "^2.3.0",
+    "typescript": "^4.2.4"
+  }
+}
