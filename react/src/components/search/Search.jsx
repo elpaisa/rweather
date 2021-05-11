@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
     } = this.props;
 
     return (
-      <form className="form-inline navbar-right">
+      <form className="ml-auto form-inline">
         <div className="row">
           <div className="col-sm">
             <input

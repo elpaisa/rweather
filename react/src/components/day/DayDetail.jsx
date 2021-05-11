@@ -2,9 +2,10 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { connect } from 'react-redux';
 
-import Icon from '../icon/Icon';
 import DayHours from './DayHours';
+import Icon from '../icon/Icon';
 import Degrees from '../degrees/Degrees';
+import Loading from '../loading/Loading';
 import dayType from '../../props/day';
 import weatherType from '../../props/weather';
 
@@ -32,6 +33,11 @@ class DayDetail extends React.Component {
       ghi,
       dni,
     } = radiation;
+
+    if (!avgWeather || !name) {
+      return <Loading />;
+    }
+
     const {
       temp,
       description,

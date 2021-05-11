@@ -46,7 +46,7 @@ export const initialState = {
         list: [],
         city: {
           id: 0,
-          name: '',
+          name: null,
           coord: {
             lat: 0,
             lon: 0,

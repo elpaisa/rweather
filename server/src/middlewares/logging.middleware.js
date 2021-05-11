@@ -1,27 +1,29 @@
+const getTime = () => {
+  return (new Date().toISOString());
+}
+
 const logger = {
   error: function (msg, obj = null) {
+    const message = `[${getTime()}]:[ERROR] ${msg}`;
     if (obj) {
-      console.error(msg, obj)
+      console.error(message, obj)
     }
 
-    console.error(msg)
+    console.error(message)
   },
   info: function (msg, obj = null) {
+    const message = `[${getTime()}]:[INFO] ${msg}`;
     if (obj) {
-      console.info(msg, obj)
+      console.info(message, obj)
     }
-    console.info(msg)
+    console.info(message)
   }
 }
 
 global.logger = logger
 
-module.exports = function (error, req, _res, next) {
-  if (error) {
-    logger.error('ERROR:', error)
-  } else {
-    logger.info(`INFO: request ${req.method}, ${req.originalUrl}`)
-  }
+module.exports = function (req, _res, next) {
+  logger.info(`[REQUEST]:[${req.method}], ${req.originalUrl}`)
 
   next()
 }

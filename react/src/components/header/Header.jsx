@@ -14,8 +14,8 @@ class Header extends React.Component {
           <div className="logo">Open Weather</div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse>
-          <Nav className="navbar-right">
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
             <Search />
           </Nav>
         </Navbar.Collapse>

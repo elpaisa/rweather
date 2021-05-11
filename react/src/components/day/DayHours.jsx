@@ -42,7 +42,7 @@ class DayHours extends React.Component {
 
       return (
         <div key={idx} className="col-sm m-b-10">
-          <Card className="text-center shadow alpha">
+          <Card className="m-w-150 text-center shadow alpha">
             <span className="bold">{timeDef}</span>
             <Icon icon={icon} className="img-center big-icon" />
             <Degrees degrees={temp} />

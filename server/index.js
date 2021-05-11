@@ -5,12 +5,12 @@ const cors = require('cors')
 
 const app = express()
 
+app.use(logging)
 app.use(cors())
 
 require('./src/routes')(app)
 
 app.use(express.static('./public/'))
-app.use(logging)
 app.listen(process.env.PORT, () =>
-  console.log(`App listening on port ${process.env.PORT}`)
+  logger.info(`App listening on port ${process.env.PORT}`)
 )

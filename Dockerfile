@@ -12,7 +12,12 @@ WORKDIR /app
 COPY . /app
 
 WORKDIR /app/server
-RUN ls -la
+RUN rm -rf /app/server/node_modules
+
+WORKDIR /app/react
+RUN rm -rf /app/react/node_modules
+
+WORKDIR /app/server
 RUN npm run init
 RUN npm run build
 
