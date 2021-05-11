@@ -170,6 +170,10 @@ a:hover {
    background-color: rgba(88, 9, 9, 0.2) !important;
 }
 
+.week {
+   margin-top: 30px;
+}
+
 .detail {
    h1 {
       font-size: 4em;
@@ -259,13 +263,17 @@ a:hover {
 }
 
 @media (max-width: 600px) {
-  .logo {
-     margin: 5px 20px;
-  }
+   .logo {
+      margin: 5px 20px;
+   }
 
-  .form-control {
-     padding: 10px !important;
-     margin: 10px !important;
-     width: 95% !important;
-  }
+   .week {
+      margin-top: 10px;
+   }
+
+   .form-control {
+      padding: 10px !important;
+      margin: 10px !important;
+      width: 95% !important;
+   }
 }

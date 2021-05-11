@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import { connect } from 'react-redux';
 
 import DayHours from './DayHours';
@@ -50,7 +49,7 @@ class DayDetail extends React.Component {
     } = avgWeather;
 
     return (
-      <Container className="detail">
+      <div className="detail">
         <div className="card shadow m-t-40 m-b-10 p-20">
           <div className="row">
             <div className="col-sm">
@@ -112,7 +111,7 @@ class DayDetail extends React.Component {
           </div>
         </div>
         <DayHours day={currentDay} />
-      </Container>
+      </div>
     );
   }
 }

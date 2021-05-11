@@ -41,7 +41,7 @@ class Week extends React.Component {
 
     return (
       <CSSTransition timeout={500}>
-        <div className="scroll m-t-30">{days}</div>
+        <div className="scroll week">{days}</div>
       </CSSTransition>
     );
   }
