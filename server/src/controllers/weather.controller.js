@@ -1,3 +1,4 @@
+const utils = require('../utils/utils')
 const WeatherService = require('../services/weather.service')
 const {
   OK,
@@ -12,11 +13,13 @@ module.exports = {
       const location = await WeatherService.locationInfo(req.query)
       const { daysOfForecast } = req.query
 
-      if (!location || (!location.city && !location.code)) {
+      if (!location || (!location.city && !location.zip)) {
         throw new Error(
-          'ERROR: An ipAddress, city or code needs to be provided'
+          'ERROR: An ipAddress, city or zip needs to be provided'
         )
       }
+
+      utils.validateZip(location.zip);
 
       const data = await WeatherService.forecast(location, daysOfForecast)
 

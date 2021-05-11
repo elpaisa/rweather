@@ -4,10 +4,11 @@ const { OK, NOT_FOUND_MSG } = require('../constants/constants')
 
 module.exports = {
   forecast: async function (
-    { code, city },
+    { zip, city },
     daysOfForecast = process.env.DAYS_OF_FORECAST
   ) {
-    const search = code || city
+    const paramName = zip ? 'zip' : 'q'
+    const search = zip || city
     const url = process.env.WEATHER_BASE_URL
     const apiKey = process.env.WEATHER_API_KEY
 
@@ -19,7 +20,7 @@ module.exports = {
       }
       
       const res = await utils.fetch(
-        `${url}/forecast?q=${search}&appid=${apiKey}`
+        `${url}/forecast?${paramName}=${search}&appid=${apiKey}`
       )
 
       if (parseInt(res.cod) !== OK) {
@@ -51,17 +52,17 @@ module.exports = {
       throw Error(e.message)
     }
   },
-  locationInfo: async function ({ code, city, ipAddress }) {
-    if (!code && !city && !ipAddress) {
+  locationInfo: async function ({ zip, city, ipAddress }) {
+    if (!zip && !city && !ipAddress) {
       return false
     }
 
-    if (!code && !city) {
+    if (!zip && !city) {
       return utils.fetch(
         `${process.env.GEOLOCATE_URL}/${ipAddress}?access_key=${process.env.GEOLOCATE_API_KEY}`
       )
     }
 
-    return { code, city }
+    return { zip, city }
   }
 }

@@ -36,8 +36,8 @@ class SearchBar extends React.Component {
             <input
               className="form-control alpha-dark"
               name="zipValue"
-              type="number"
-              placeholder="Search Zip"
+              type="text"
+              placeholder="ie: 760002,co"
               onChange={this.changeHandler}
               onKeyDown={zipHandler}
             />

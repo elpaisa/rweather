@@ -40,7 +40,7 @@ export const initialState = {
     cityValue: '',
   },
   data: {
-    callerError: false,
+    callerError: '',
     forecast: {
       data: {
         list: [],

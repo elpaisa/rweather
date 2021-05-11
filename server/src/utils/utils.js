@@ -27,6 +27,18 @@ const isToday = (date) => {
   return isDateToday ? TODAY : isTomorrow(date)
 }
 
+const validateZip = (code) => {
+  if (!code) {
+    return;
+  }
+
+  const s = code.replace(/ /g, '').split(',');
+
+  if (s.length !== 2) {
+    throw new Error("Zip code must be in format `760001,co` = `zip_code,country_code`")
+  }
+};
+
 const getNextDays = (numberOfDays) => {
   const days = []
 
@@ -115,4 +127,4 @@ const formatWeatherData = (data, daysOfForecast) => {
   return { ...data, list }
 }
 
-module.exports = { fetch, formatWeatherData }
+module.exports = { fetch, formatWeatherData, validateZip }

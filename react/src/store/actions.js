@@ -52,7 +52,7 @@ export async function getForecast(url) {
     const data = await res.json();
 
     if (data.status !== 200) {
-      throw new Error('Not able to rerieve data');
+      throw new Error(data.message);
     }
     const currentDay = data.data.list.filter(
       (d) => d.day_of_week === 'Today',
@@ -75,12 +75,8 @@ export async function getDefaultForecast(component) {
 }
 
 export async function searchCity(searchType, value) {
-  if (searchType === SEARCH_BY_ZIP) {
-    const url = `${API_URL}/forecast?code=${value}&daysOfForecast=${DAYS_OF_FORECAST}`;
-
-    return getForecast(url);
-  }
-  const url = `${API_URL}/forecast?city=${value}&daysOfForecast=${DAYS_OF_FORECAST}`;
+  const paramName = searchType === SEARCH_BY_ZIP ? 'zip' : 'city';
+  const url = `${API_URL}/forecast?${paramName}=${value}&daysOfForecast=${DAYS_OF_FORECAST}`;
 
   return getForecast(url);
 }
