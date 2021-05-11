@@ -6,7 +6,7 @@ import {
   TYPE_IN_ZIP_FIELD,
   RECIEVE_WEATHER_DATA,
   SET_TODAY_WEATHER,
-  THROW_CALLER_ERROR,
+  API_ERROR_MESSAGE,
   SEARCH_BY_ZIP,
   SEARCH_BY_CITY,
   API_URL,
@@ -24,9 +24,9 @@ export async function getClientIp(component) {
   return ipAddress;
 }
 
-export function throwCallerError(error) {
+export function processErrorMessage(error) {
   return store.dispatch({
-    type: THROW_CALLER_ERROR,
+    type: API_ERROR_MESSAGE,
     error,
   });
 }
@@ -61,7 +61,7 @@ export async function getForecast(url) {
     setTodayData(currentDay);
     receiveWeatherData(data.data);
   } catch (e) {
-    throwCallerError(e.message);
+    processErrorMessage(e.message);
   }
 
   return res;

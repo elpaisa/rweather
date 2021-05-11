@@ -1,17 +1,10 @@
 import {
   TYPE_IN_CITYNAME_FIELD,
   TYPE_IN_ZIP_FIELD,
-  THROW_CALLER_ERROR,
+  API_ERROR_MESSAGE,
   RECIEVE_WEATHER_DATA,
   SET_TODAY_WEATHER,
 } from './constants';
-
-export const darkTheme = {
-  name: 'nighttime',
-  foregroundColor: 'white',
-  backgroundColor: '#2d2d2d',
-  sunColor: '#f8b62d',
-};
 
 const currentDay = {
   date: '',
@@ -34,7 +27,6 @@ const currentDay = {
 
 export const initialState = {
   currentRoute: '/',
-  theme: darkTheme,
   userInput: {
     zipValue: '',
     cityValue: '',
@@ -120,7 +112,7 @@ export function rootReducer(state = initialState, action) {
         show: state.data.show,
       };
 
-    case THROW_CALLER_ERROR:
+    case API_ERROR_MESSAGE:
       return {
         ...initialState,
         currentRoute: '/err',
