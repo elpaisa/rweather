@@ -12,14 +12,12 @@ module.exports = {
     const apiKey = process.env.WEATHER_API_KEY
 
     try {
-      if (process.env.CACHE_HOST) {
-        const getCached = await cache.getCache(search)
+      const getCached = await cache.getCache(search)
 
-        if (getCached) {
-          return getCached
-        }
+      if (getCached) {
+        return getCached
       }
-
+      
       const res = await utils.fetch(
         `${url}/forecast?q=${search}&appid=${apiKey}`
       )
@@ -30,10 +28,8 @@ module.exports = {
 
       const data = utils.formatWeatherData(res, daysOfForecast)
 
-      if (process.env.CACHE_HOST) {
-        await cache.setCache(search, data)
-      }
-
+      await cache.setCache(search, data)
+      
       return data
     } catch (e) {
       logger.error(e.message)

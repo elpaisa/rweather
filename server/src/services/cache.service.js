@@ -4,8 +4,8 @@ let client
 const init = async () => {
   if (!client) {
     const conf = {
-      host: '127.0.0.1',
-      port: 6379,
+      host: process.env.CACHE_HOST,
+      port: process.env.CACHE_PORT || 6379,
       max_clients: 3,
       perform_checks: false,
       database: 0
@@ -16,6 +16,10 @@ const init = async () => {
   return client
 }
 const setCache = async (key, obj) => {
+  if (!process.env.CACHE_HOST) {
+    return null
+  }
+
   await init()
   let res
 
@@ -40,6 +44,10 @@ const setCache = async (key, obj) => {
 }
 
 const getCache = async (key) => {
+  if (!process.env.CACHE_HOST) {
+    return null
+  }
+
   await init()
 
   let res
