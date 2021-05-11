@@ -9,11 +9,11 @@ import Search from '../search/Search';
 class Header extends React.Component {
   render() {
     return (
-      <Navbar className="shadow alpha" expand="lg">
+      <Navbar className="shadow alpha-dark" expand="lg">
         <Navbar.Brand href="/">
           <div className="logo">Open Weather</div>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle className="card alpha shadow m-r-10" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Search />

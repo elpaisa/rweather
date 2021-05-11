@@ -1,6 +1,6 @@
 html {
    box-sizing: border-box;
-   font-family: 'Roboto', sans-serif;
+   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
    color: var(--foreground-color);
    background-color: var(--background-color);
 }
@@ -16,8 +16,8 @@ body {
    height: 100%;
    margin: 0px;
    padding: 0px;
-   background: #01324d;
-   background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+   background: #354a8f;
+   background-image: linear-gradient(#051937 %9, #004d7a, #008793, #00bf72, #354a8f);
    background-repeat: no-repeat;
 }
 
@@ -36,6 +36,10 @@ a:visited {
 hr {
    margin: 2px;
    padding: 0;
+}
+
+.container {
+   margin-bottom: 90px !important;
 }
 
 .icon {
@@ -70,6 +74,9 @@ a:hover {
    margin: 50px;
 }
 
+.m-r-10 {
+   margin-right: 15px;
+}
 .m-t-40 {
    margin-top: 40px;
 }
@@ -127,10 +134,10 @@ a:hover {
 .logo {
    width: 120px;
    height: 80px;
-   background-color: rgb(250, 250, 242);
+   background-color: #00bf72;
    font-size: 1.2em;
-   color: #01324d;
-   margin: 5px;
+   color: #fff;
+   margin: 5px 100px;
    padding: 5px;
    white-space: pre-wrap;
    -webkit-box-shadow: 5px 9px 9px -5px rgba(0, 0, 0, 0.44);
@@ -155,7 +162,7 @@ a:hover {
 }
 
 .alpha {
-   background-color: rgba(247, 241, 241, 0.6) !important;
+   background-color: rgba(247, 241, 241, 0.9) !important;
 }
 
 .alpha-dark {
@@ -164,8 +171,6 @@ a:hover {
 }
 
 .detail {
-   margin-bottom: 100px;
-
    h1 {
       font-size: 4em;
    }
@@ -208,7 +213,7 @@ a:hover {
 
 .footer {
    position: fixed;
-   background-color: #7dd1e6;
+   background-color: #00bf72;
    bottom: 1px;
    width: 100%;
    text-align: center;
@@ -251,4 +256,16 @@ a:hover {
 
 .highlight {
    font-size: 1.5em;
+}
+
+@media (max-width: 600px) {
+  .logo {
+     margin: 5px 20px;
+  }
+
+  .form-control {
+     padding: 10px !important;
+     margin: 10px !important;
+     width: 95% !important;
+  }
 }

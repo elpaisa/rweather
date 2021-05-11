@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
         <div className="row">
           <div className="col-sm">
             <input
-              className="form-control"
+              className="form-control alpha-dark"
               name="cityValue"
               type="text"
               placeholder="Search City Name"
@@ -34,7 +34,7 @@ class SearchBar extends React.Component {
           </div>
           <div className="col-sm">
             <input
-              className="form-control"
+              className="form-control alpha-dark"
               name="zipValue"
               type="number"
               placeholder="Search Zip"
