@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Footer = () => (
-  <footer className="footer">
-    <p>Powered by React</p>
+  <footer className="footer alpha-dark">
+    Powered by React, Written by @elpaisa
   </footer>
 );
 
