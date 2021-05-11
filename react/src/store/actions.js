@@ -1,3 +1,4 @@
+import { setLocale } from 'react-redux-i18n';
 import publicIp from 'public-ip';
 import store from './store';
 import {
@@ -56,7 +57,7 @@ export async function getForecast(url) {
     }
     const currentDay = data.data.list.filter(
       (d) => d.day_of_week === 'Today',
-    )[0];
+    )[0] || data.data.list[0];
 
     setTodayData(currentDay);
     receiveWeatherData(data.data);
@@ -100,4 +101,8 @@ export function typeCity(e) {
     type: TYPE_IN_CITYNAME_FIELD,
     cityValue: e.target.value,
   });
+}
+
+export function setLocaleAction(locale) {
+  return (dispatch) => dispatch(setLocale(locale));
 }

@@ -1,6 +1,6 @@
 const nodeFetch = require('node-fetch')
 
-const { TODAY, TOMORROW } = require('../constants/constants')
+const { TODAY, TOMORROW, INVALID_ZIP_CODE } = require('../constants/constants')
 
 const fetch = async (url) => {
   const res = await nodeFetch(url)
@@ -18,11 +18,9 @@ const isTomorrow = (date) => {
 
 const isToday = (date) => {
   const d = new Date(date)
-  const today = new Date()
-  const isDateToday =
-    d.getDate() === today.getDate() &&
-    d.getMonth() === today.getMonth() &&
-    d.getFullYear() === today.getFullYear()
+  const compare = d.toISOString()
+  const today = (new Date()).toISOString()
+  const isDateToday = compare.split('T')[0] === today.split('T')[0]
 
   return isDateToday ? TODAY : isTomorrow(date)
 }
@@ -35,7 +33,7 @@ const validateZip = (code) => {
   const s = code.replace(/ /g, '').split(',');
 
   if (s.length !== 2) {
-    throw new Error("Zip code must be in format `760001,co` = `zip_code,country_code`")
+    throw new Error(INVALID_ZIP_CODE)
   }
 };
 

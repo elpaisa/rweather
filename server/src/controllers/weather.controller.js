@@ -19,7 +19,7 @@ module.exports = {
         )
       }
 
-      utils.validateZip(location.zip);
+      utils.validateZip(location.zip)
 
       const data = await WeatherService.forecast(location, daysOfForecast)
 

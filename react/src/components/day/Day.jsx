@@ -1,6 +1,7 @@
 /* eslint-disable import/named */
 import React from 'react';
 import { connect } from 'react-redux';
+import { Translate } from 'react-redux-i18n';
 
 import { setTodayData } from '../../store/actions';
 import dayType from '../../props/day';
@@ -32,6 +33,7 @@ class Day extends React.Component {
       temp_max: tempMax,
       temp_min: tempMin,
     } = avgWeather;
+    const constantDay = dayOfWeek.toUpperCase();
 
     return (
       <div
@@ -44,7 +46,9 @@ class Day extends React.Component {
         <div className="row">
           <div className="col-6 text-left">
             <Icon icon={icon} className="small-icon" />
-            <span className="highlight">{dayOfWeek}</span>
+            <span className="highlight">
+              <Translate value={constantDay} />
+            </span>
             <br />
             <span>{description}</span>
           </div>
@@ -67,8 +71,8 @@ Day.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  weatherData: state.data.forecast,
-  currentDay: state.data.currentDay,
+  weatherData: state.weatherReducer.data.forecast,
+  currentDay: state.weatherReducer.data.currentDay,
 });
 
 export default connect(mapStateToProps)(Day);

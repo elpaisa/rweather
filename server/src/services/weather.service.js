@@ -8,7 +8,7 @@ module.exports = {
     daysOfForecast = process.env.DAYS_OF_FORECAST
   ) {
     const paramName = zip ? 'zip' : 'q'
-    const search = zip || city
+    const search = zip ? zip.replace(/ /g, '') : city
     const url = process.env.WEATHER_BASE_URL
     const apiKey = process.env.WEATHER_API_KEY
 
@@ -18,7 +18,7 @@ module.exports = {
       if (getCached) {
         return getCached
       }
-      
+
       const res = await utils.fetch(
         `${url}/forecast?${paramName}=${search}&appid=${apiKey}`
       )
@@ -30,7 +30,7 @@ module.exports = {
       const data = utils.formatWeatherData(res, daysOfForecast)
 
       await cache.setCache(search, data)
-      
+
       return data
     } catch (e) {
       logger.error(e.message)

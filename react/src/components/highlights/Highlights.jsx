@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import weatherType from '../../props/weather';
 
 import Week from '../week/Week';
@@ -37,8 +36,8 @@ Highlights.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  weatherData: state.data.forecast.data,
-  currentDay: state.data.currentDay.data,
+  weatherData: state.weatherReducer.data.forecast,
+  currentDay: state.weatherReducer.data.currentDay,
 });
 
 export default connect(mapStateToProps)(Highlights);

@@ -4,5 +4,6 @@ module.exports = {
   BAD_REQUEST: 400,
   TODAY: 'Today',
   TOMORROW: 'Tomorrow',
-  NOT_FOUND_MSG: 'Not found!'
+  NOT_FOUND_MSG: 'NOT_FOUND_MSG',
+  INVALID_ZIP_CODE: 'INVALID_ZIP_CODE'
 }

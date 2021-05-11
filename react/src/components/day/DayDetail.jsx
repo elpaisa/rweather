@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Translate } from 'react-redux-i18n';
 
 import DayHours from './DayHours';
 import Icon from '../icon/Icon';
@@ -47,6 +48,7 @@ class DayDetail extends React.Component {
       icon,
       humidity,
     } = avgWeather;
+    const CONSTANT_DAY = dayOfWeek.toUpperCase();
 
     return (
       <div className="detail">
@@ -54,7 +56,9 @@ class DayDetail extends React.Component {
           <div className="row">
             <div className="col-sm">
               <h4 className="bold">
-                <span className="text-success">{dayOfWeek}</span>
+                <span className="text-success">
+                  <Translate value={CONSTANT_DAY} />
+                </span>
               </h4>
               <h4 className="bold">
                 {name}
@@ -72,38 +76,54 @@ class DayDetail extends React.Component {
               <ul>
                 <li>
                   <h5 className="text-warning">
-                    <span>Global Horizontal Irradiance: </span>
+                    <span>
+                      <Translate value="GHI" />
+                    </span>
                     {ghi}
                   </h5>
                 </li>
                 <li>
                   <h5 className="text-danger">
-                    <span>Direct Normal Irradiance, W/m2: </span>
+                    <span>
+                      <Translate value="DNI" />
+                    </span>
                     {dni}
                   </h5>
                 </li>
                 <li>
-                  <span>Population: </span>
+                  <span>
+                    <Translate value="POPULATION" />
+                  </span>
                   {population}
                 </li>
                 <li>
-                  <span>Temp min: </span>
+                  <span>
+                    <Translate value="TEMP_MIN" />
+                  </span>
                   {tempMin}
                 </li>
                 <li>
-                  <span>Temp max: </span>
+                  <span>
+                    <Translate value="TEMP_MAX" />
+                  </span>
                   {tempMax}
                 </li>
                 <li>
-                  <span>Pressure: </span>
+                  <span>
+                    <Translate value="PRESSURE" />
+                  </span>
                   {pressure}
                 </li>
                 <li>
-                  <span>Sea level: </span>
+                  <span>
+                    <Translate value="SEA_LEVEL" />
+                  </span>
                   {seaLevel}
                 </li>
                 <li>
-                  <span>Humidity: </span>
+                  <span>
+                    <Translate value="HUMIDITY" />
+                  </span>
                   {humidity}
                 </li>
               </ul>
@@ -122,8 +142,8 @@ DayDetail.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  weatherData: state.data.forecast.data,
-  currentDay: state.data.currentDay.data,
+  weatherData: state.weatherReducer.data.forecast,
+  currentDay: state.weatherReducer.data.currentDay,
 });
 
 export default connect(mapStateToProps)(DayDetail);

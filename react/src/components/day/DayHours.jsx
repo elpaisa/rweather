@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Card from 'react-bootstrap/Card';
+import { Translate } from 'react-redux-i18n';
 
 import dayType from '../../props/day';
 
@@ -9,14 +10,14 @@ import Degrees from '../degrees/Degrees';
 
 class DayHours extends React.Component {
   hours = {
-    '00:00:00': 'Midnight',
-    '03:00:00': 'Early Morning',
-    '06:00:00': 'Morning',
-    '09:00:00': 'Midmorning',
-    '12:00:00': 'Noon',
-    '15:00:00': 'Afternoon',
-    '18:00:00': 'Sunset',
-    '21:00:00': 'Night',
+    '00:00:00': 'MIDNIGHT',
+    '03:00:00': 'EARLY_MORNING',
+    '06:00:00': 'MORNING',
+    '09:00:00': 'MIDMORNING',
+    '12:00:00': 'NOON',
+    '15:00:00': 'AFTERNOON',
+    '18:00:00': 'SUNSET',
+    '21:00:00': 'NIGHT',
   };
 
   mapHourToString(hour) {
@@ -43,7 +44,9 @@ class DayHours extends React.Component {
       return (
         <div key={idx} className="col-sm m-b-10">
           <Card className="m-w-150 text-center shadow alpha-dark">
-            <span className="bold">{timeDef}</span>
+            <span className="bold">
+              <Translate value={timeDef} />
+            </span>
             <Icon icon={icon} className="img-center big-icon" />
             <Degrees degrees={temp} />
             <br />
@@ -62,7 +65,7 @@ DayHours.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentDay: state.data.currentDay.data,
+  currentDay: state.weatherReducer.data.currentDay,
 });
 
 export default connect(mapStateToProps)(DayHours);

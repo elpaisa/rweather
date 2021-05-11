@@ -2,12 +2,13 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { string, func, shape } from 'prop-types';
 
 import Highlights from '../highlights/Highlights';
 import Week from '../week/Week';
 import ErrorComponent from '../error/ErrorComponent';
 
-class Body extends React.Component {
+class Forecast extends React.Component {
   componentDidMount() {
     const {
       history,
@@ -41,8 +42,15 @@ class Body extends React.Component {
   }
 }
 
+Forecast.propTypes = {
+  route: string.isRequired,
+  history: shape({
+    push: func,
+  }).isRequired,
+};
+
 const mapStateToProps = (state) => ({
-  route: state.currentRoute,
+  route: state.weatherReducer.currentRoute,
 });
 
-export default connect(mapStateToProps)(withRouter(Body));
+export default connect(mapStateToProps)(withRouter(Forecast));

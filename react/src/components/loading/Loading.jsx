@@ -1,4 +1,5 @@
 import React from 'react';
+import { Translate } from 'react-redux-i18n';
 
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
@@ -7,7 +8,7 @@ class Loading extends React.Component {
     return (
       <Jumbotron className="card p-50 m-50 shadow alpha">
         <h1>
-          Weather info is loading, hold on...
+          <Translate value="LOADING_WEATHER_HOLD_ON" />
         </h1>
       </Jumbotron>
     );

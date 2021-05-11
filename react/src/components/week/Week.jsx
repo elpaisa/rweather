@@ -52,7 +52,7 @@ Week.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  weatherData: state.data.forecast.data,
+  weatherData: state.weatherReducer.data.forecast,
 });
 
 export default connect(mapStateToProps)(Week);
