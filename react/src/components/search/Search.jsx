@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
               className="form-control alpha-dark"
               name="cityValue"
               type="text"
-              placeholder="Search City Name"
+              placeholder="City(,code optional)"
               onChange={this.changeHandler}
               onKeyDown={searchCity}
             />
@@ -37,7 +37,7 @@ class SearchBar extends React.Component {
               className="form-control alpha-dark"
               name="zipValue"
               type="text"
-              placeholder="ie: 760002,co"
+              placeholder="760002,co"
               onChange={this.changeHandler}
               onKeyDown={zipHandler}
             />

@@ -2,7 +2,6 @@ html {
    box-sizing: border-box;
    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
    color: var(--foreground-color);
-   background-color: var(--background-color);
 }
 
 *,
@@ -60,6 +59,16 @@ a:hover {
 
 .m-w-150 {
    min-width: 150px !important;
+}
+
+.f-1 {
+   font-size: 1em;
+}
+.f-2 {
+   font-size: 2em;
+}
+.f-5 {
+   font-size: 5em;
 }
 
 .h-100 {
@@ -170,6 +179,28 @@ a.text-white, .text-white {
    overflow-y: auto;
 }
 
+.backdrop {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background-color: rgba(88, 9, 9, 0.3) !important;
+   color: #fff;
+
+   .loader{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform: -webkit-translate(-50%, -50%);
+      transform: -moz-translate(-50%, -50%);
+      transform: -ms-translate(-50%, -50%);
+      z-index: 9999;
+      animation: rotation 2s infinite linear;
+   }
+}
+
 .alpha {
    background-color: rgba(247, 241, 241, 0.9) !important;
 }
@@ -189,7 +220,7 @@ a.text-white, .text-white {
    }
 
    ul {
-      margin: 0;
+      margin: 15px;
       padding: 0;
       width: 100%;
    }
@@ -210,12 +241,6 @@ a.text-white, .text-white {
 }
 
 .navbar {
-   .f-1 {
-      font-size: 1em;
-   }
-   .f-2 {
-      font-size: 2em;
-   }
    h4 {
       font-size: 1.2em;
       color: #fff;
@@ -243,33 +268,13 @@ a.text-white, .text-white {
       margin-top: 20px !important;
    }
 }
-
-.slowSpin {
-   animation: rotationClockwise 20s infinite linear;
-}
-
-.slowSpin:last-of-type {
-   animation: rotationCounterClockwise 20s infinite linear;
-}
-
-@keyframes rotationCounterClockwise {
-   from {
-      transform: rotate(0deg);
-   }
-
-   to {
-      transform: rotate(-359deg);
-   }
-}
-
-@keyframes rotationClockwise {
-   from {
-      transform: rotate(0deg);
-   }
-
-   to {
-      transform: rotate(359deg);
-   }
+@keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
 }
 
 .highlight {
@@ -282,7 +287,7 @@ a.text-white, .text-white {
    }
 
    .week {
-      margin-top: 10px;
+      margin: 10px 0 60px 0;
    }
 
    .form-control {

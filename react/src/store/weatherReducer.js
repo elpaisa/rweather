@@ -4,6 +4,7 @@ import {
   API_ERROR_MESSAGE,
   RECIEVE_WEATHER_DATA,
   SET_TODAY_WEATHER,
+  UPDATE_IS_LOADING,
 } from './constants';
 
 const currentDay = {
@@ -28,6 +29,7 @@ const currentDay = {
 
 export const initialState = {
   currentRoute: '/',
+  isLoading: true,
   userInput: {
     zipValue: '',
     cityValue: '',
@@ -72,6 +74,11 @@ export default function weatherReducer(state = initialState, action) {
           ...state.userInputs,
           cityValue: action.cityValue,
         },
+      };
+    case UPDATE_IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.data,
       };
 
     case TYPE_IN_ZIP_FIELD:

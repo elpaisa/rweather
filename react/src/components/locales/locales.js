@@ -4,6 +4,8 @@ export const DEFAULT_LANG = 'en';
 export const translations = {
   en: {
     LANG_TITLE: 'English',
+    SEARCH_CITY_NAME: 'City (,Country code optional)',
+    SEARCH_ZIP_CODE: '760002,co',
     LOADING_WEATHER_HOLD_ON: 'Weather info is loading, please hold on...',
     ERROR_IN_API: 'There was an error calling the api, please try again!',
     NOT_FOUND_MSG: 'The place or zip code was not found!',
@@ -34,6 +36,7 @@ export const translations = {
     FRIDAY: 'Friday',
     SATURDAY: 'Saturday',
     LANGUAGE: 'Language',
+    CLEAR_SKY: 'Clear sky',
     LIGHT_RAIN: 'Light rain',
     RAIN: 'Rain',
     MODERATE_RAIN: 'Moderate rain',
@@ -47,6 +50,8 @@ export const translations = {
   },
   es: {
     LANG_TITLE: 'Español',
+    SEARCH_CITY_NAME: 'Ciudad (,Cod pais opcional)',
+    SEARCH_ZIP_CODE: '760002,co',
     LOADING_WEATHER_HOLD_ON: 'La informacion del clima esta cargando, por favor espere...',
     ERROR_IN_API: 'Hubo un error llamando al servidor!',
     NOT_FOUND_MSG: 'Lugar o codigo postal no encontrado',
@@ -77,6 +82,7 @@ export const translations = {
     FRIDAY: 'Viernes',
     SATURDAY: 'Sabado',
     LANGUAGE: 'Idioma',
+    CLEAR_SKY: 'Cielo despejado',
     LIGHT_RAIN: 'Lluvia ligera',
     RAIN: 'Lluvia',
     MODERATE_RAIN: 'Lluvia moderada',

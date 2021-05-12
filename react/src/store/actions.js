@@ -11,6 +11,7 @@ import {
   SEARCH_BY_ZIP,
   SEARCH_BY_CITY,
   API_URL,
+  UPDATE_IS_LOADING,
 } from './constants';
 
 export async function getClientIp(component) {
@@ -32,6 +33,13 @@ export function processErrorMessage(error) {
   });
 }
 
+export function updateIsLoadingState(data) {
+  return store.dispatch({
+    type: UPDATE_IS_LOADING,
+    data,
+  });
+}
+
 export function receiveWeatherData(data) {
   return store.dispatch({
     type: RECIEVE_WEATHER_DATA,
@@ -48,6 +56,8 @@ export function setTodayData(data) {
 
 export async function getForecast(url) {
   let res;
+  updateIsLoadingState(true);
+
   try {
     res = await fetch(url);
     const data = await res.json();
@@ -64,6 +74,7 @@ export async function getForecast(url) {
   } catch (e) {
     processErrorMessage(e.message);
   }
+  updateIsLoadingState(false);
 
   return res;
 }
