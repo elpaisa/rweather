@@ -1,5 +1,3 @@
-const { formatReq } = require('./response.middleware')
-
 const getTime = () => {
   return (new Date().toISOString())
 }
