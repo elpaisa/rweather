@@ -52,7 +52,7 @@ class DayDetail extends React.Component {
 
     return (
       <div className="detail">
-        <div className="card shadow m-t-40 m-b-10 p-20">
+        <div className="card shadow m-t-30 m-b-10 p-20">
           <div className="row">
             <div className="col-sm">
               <h4 className="bold">

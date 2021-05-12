@@ -14,6 +14,7 @@ const currentDay = {
     id: 0,
     main: '',
     description: '',
+    weather_constant: '',
     icon: '',
     hour: '',
     temp: 0,
