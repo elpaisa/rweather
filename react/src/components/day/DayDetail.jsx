@@ -40,7 +40,7 @@ class DayDetail extends React.Component {
 
     const {
       temp,
-      description,
+      weather_constant: weather,
       temp_min: tempMin,
       temp_max: tempMax,
       pressure,
@@ -70,7 +70,7 @@ class DayDetail extends React.Component {
                 <Icon icon={icon} className="big-icon" />
                 <Degrees degrees={temp} />
               </h1>
-              <h2>{description}</h2>
+              <h2><Translate value={weather} /></h2>
             </div>
             <div className="col-sm">
               <ul>

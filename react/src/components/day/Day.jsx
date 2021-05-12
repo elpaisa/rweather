@@ -28,7 +28,7 @@ class Day extends React.Component {
     } = day;
     const {
       id,
-      description,
+      weather_constant: weather,
       icon,
       temp_max: tempMax,
       temp_min: tempMin,
@@ -50,7 +50,7 @@ class Day extends React.Component {
               <Translate value={constantDay} />
             </span>
             <br />
-            <span>{description}</span>
+            <span><Translate value={weather} /></span>
           </div>
           <div className="col-6 text-right">
             <h3 className="highlight">

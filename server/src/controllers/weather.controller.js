@@ -35,7 +35,7 @@ module.exports = {
         return res.notFound()
       }
 
-      return res.badRequest(e.message)
+      return res.badRequest(e.message, e)
     }
   }
 }

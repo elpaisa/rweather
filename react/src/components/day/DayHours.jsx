@@ -50,7 +50,7 @@ class DayHours extends React.Component {
             <Icon icon={icon} className="img-center big-icon" />
             <Degrees degrees={temp} />
             <br />
-            <span className="bold">{main}</span>
+            <span className="bold"><Translate value={main.toUpperCase()} /></span>
           </Card>
         </div>
       );

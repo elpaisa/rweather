@@ -27,7 +27,7 @@ const isToday = (date) => {
 
 const validateZip = (code) => {
   if (!code) {
-    return;
+    return
   }
 
   const s = code.replace(/ /g, '').split(',');
@@ -35,7 +35,7 @@ const validateZip = (code) => {
   if (s.length !== 2) {
     throw new Error(INVALID_ZIP_CODE)
   }
-};
+}
 
 const getNextDays = (numberOfDays) => {
   const days = []
@@ -89,6 +89,10 @@ function capitalizeWords (string) {
   })
 }
 
+const toConstant = (str) => {
+  return str.toUpperCase().replace(/ /g, '_')
+}
+
 const formatWeatherData = (data, daysOfForecast) => {
   const weatherDays = {}
   const days = getNextDays(daysOfForecast)
@@ -114,6 +118,7 @@ const formatWeatherData = (data, daysOfForecast) => {
         hour,
         icon,
         description,
+        weather_constant: toConstant(description),
         ...main
       })
       const avgWeather = getAverageWeather(weatherDays[date].hours)
