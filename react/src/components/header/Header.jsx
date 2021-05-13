@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import { SiGoogleearth } from 'react-icons/si';
 import { WiDegrees } from 'react-icons/wi';
+import queryString from 'query-string';
 
 import { translations } from '../locales/locales';
 import { setLocaleAction, updateDegreeUnit } from '../../store/actions';
@@ -28,7 +29,10 @@ class Header extends React.Component {
       lastFetchUrl,
       updateUnitAction,
     } = this.props;
-    const url = `${lastFetchUrl}&unit=${unit}`;
+    const parsedUrl = lastFetchUrl.split('?');
+    const query = { ...queryString.parse(parsedUrl[1]), unit };
+    const queryStr = queryString.stringify(query);
+    const url = [parsedUrl[0], queryStr].join('?');
 
     updateUnitAction(unit, url);
   };
