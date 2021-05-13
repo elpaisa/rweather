@@ -40,6 +40,9 @@ Open your web browser to http://localhost:3000/
 ```
 docker build -t weather-app .
 docker run -it -p 8001:8001 weather-app
+
+Open your web browser to http://localhost:8001/
+
 ```
 ## Application screenshot
 
