@@ -11,7 +11,7 @@ const {
 module.exports = function (req, res, next) {
   res.badRequest = function (message = BAD_REQUEST_MSG, data = {}) {
     logger.error(logger.formatReq(req, message), data)
-
+    logger.debugTimeEnd('REQUEST')
     return res.status(BAD_REQUEST).send({
       status: BAD_REQUEST,
       message,
@@ -20,6 +20,7 @@ module.exports = function (req, res, next) {
   }
   res.notFound = function (message = NOT_FOUND_MSG, data = {}) {
     logger.error(logger.formatReq(req, message), data)
+    logger.debugTimeEnd('REQUEST')
 
     return res.status(NOT_FOUND).send({
       status: NOT_FOUND,
@@ -34,6 +35,7 @@ module.exports = function (req, res, next) {
       data
     }
 
+    logger.debugTimeEnd('REQUEST')
     logger.info(logger.formatReq(req, SUCCESS_MSG))
 
     return res.status(OK).send(response)

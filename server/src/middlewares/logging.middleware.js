@@ -21,6 +21,12 @@ const logger = {
   },
   debug: function (msg, obj = null) {
     console.debug(formatMessage('DEBUG', msg, obj))
+  },
+  debugTimeStart: function (key) {
+    console.time(key)
+  },
+  debugTimeEnd: function (key) {
+    console.timeEnd(key)
   }
 }
 
@@ -34,6 +40,7 @@ global.logger = logger
 
 module.exports = function (req, _res, next) {
   logger.info(logger.formatReq(req, 'INIT_REQUEST'))
+  logger.debugTimeStart('REQUEST')
 
   next()
 }
