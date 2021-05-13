@@ -4,7 +4,7 @@ const { OK, NOT_FOUND_MSG } = require('../constants/constants')
 
 module.exports = {
   forecast: async function (
-    { zip, city },
+    { zip, city, units = 'imperial' },
     daysOfForecast = process.env.DAYS_OF_FORECAST
   ) {
     const paramName = zip ? 'zip' : 'q'
@@ -20,7 +20,7 @@ module.exports = {
       }
 
       const res = await utils.fetch(
-        `${url}/forecast?${paramName}=${search}&appid=${apiKey}`
+        `${url}/forecast?${paramName}=${search}&appid=${apiKey}&units=${units}`
       )
 
       if (parseInt(res.cod) !== OK) {
