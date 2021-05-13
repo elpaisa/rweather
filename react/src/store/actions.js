@@ -12,6 +12,8 @@ import {
   SEARCH_BY_CITY,
   API_URL,
   UPDATE_IS_LOADING,
+  UPDATE_DEGREE_UNIT,
+  UPDATE_LAST_URL,
 } from './constants';
 
 export async function getClientIp(component) {
@@ -40,6 +42,13 @@ export function updateIsLoadingState(data) {
   });
 }
 
+export function updateLastUrlState(data) {
+  return store.dispatch({
+    type: UPDATE_LAST_URL,
+    data,
+  });
+}
+
 export function receiveWeatherData(data) {
   return store.dispatch({
     type: RECIEVE_WEATHER_DATA,
@@ -57,6 +66,7 @@ export function setTodayData(data) {
 export async function getForecast(url) {
   let res;
   updateIsLoadingState(true);
+  updateLastUrlState(url);
 
   try {
     res = await fetch(url);
@@ -116,4 +126,13 @@ export function typeCity(e) {
 
 export function setLocaleAction(locale) {
   return (dispatch) => dispatch(setLocale(locale));
+}
+
+export function updateDegreeUnit(data, url) {
+  getForecast(url);
+
+  return store.dispatch({
+    type: UPDATE_DEGREE_UNIT,
+    data,
+  });
 }

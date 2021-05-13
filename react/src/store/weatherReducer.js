@@ -5,6 +5,8 @@ import {
   RECIEVE_WEATHER_DATA,
   SET_TODAY_WEATHER,
   UPDATE_IS_LOADING,
+  UPDATE_DEGREE_UNIT,
+  UPDATE_LAST_URL,
 } from './constants';
 
 const currentDay = {
@@ -29,6 +31,8 @@ const currentDay = {
 
 export const initialState = {
   currentRoute: '/',
+  lastFetchUrl: '',
+  currentDegreeUnit: 'F',
   isLoading: true,
   userInput: {
     zipValue: '',
@@ -80,7 +84,16 @@ export default function weatherReducer(state = initialState, action) {
         ...state,
         isLoading: action.data,
       };
-
+    case UPDATE_LAST_URL:
+      return {
+        ...state,
+        lastFetchUrl: action.data,
+      };
+    case UPDATE_DEGREE_UNIT:
+      return {
+        ...state,
+        currentDegreeUnit: action.data,
+      };
     case TYPE_IN_ZIP_FIELD:
       return {
         ...state,

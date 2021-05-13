@@ -70,6 +70,15 @@ const getDayOfTheWeekFromISODate = (dateStr) => {
   return days[date.getDay()]
 }
 
+const mapToDegreeUnit = (unit) => {
+  const units = {
+    F: 'imperial',
+    C: 'metric'
+  }
+
+  return units[unit]
+}
+
 const getAverageWeather = (hours) => {
   const ocurrences = hours.map((h) => h.description)
   const avgWeather = ocurrences
@@ -130,4 +139,9 @@ const formatWeatherData = (data, daysOfForecast) => {
   return { ...data, list }
 }
 
-module.exports = { fetch, formatWeatherData, validateZip }
+module.exports = {
+  mapToDegreeUnit,
+  fetch,
+  formatWeatherData,
+  validateZip
+}

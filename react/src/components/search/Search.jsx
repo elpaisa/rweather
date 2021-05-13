@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 import store from '../../store/store';
 
@@ -20,30 +23,26 @@ class SearchBar extends React.Component {
     } = this.props;
 
     return (
-      <form className="ml-auto form-inline">
-        <div className="row">
-          <div className="col-sm">
-            <input
-              className="form-control alpha-dark"
-              name="cityValue"
-              type="text"
-              placeholder="City(,code optional)"
-              onChange={this.changeHandler}
-              onKeyDown={searchCity}
-            />
-          </div>
-          <div className="col-sm">
-            <input
-              className="form-control alpha-dark"
-              name="zipValue"
-              type="text"
-              placeholder="760002,co"
-              onChange={this.changeHandler}
-              onKeyDown={zipHandler}
-            />
-          </div>
-        </div>
-      </form>
+      <Form inline>
+        <InputGroup>
+          <FormControl
+            type="text"
+            className="mr-sm-2 alpha-dark"
+            name="cityValue"
+            placeholder="City(,code optional)"
+            onChange={this.changeHandler}
+            onKeyDown={searchCity}
+          />
+          <FormControl
+            className="mr-sm-2 alpha-dark"
+            name="zipValue"
+            type="text"
+            placeholder="760002,co"
+            onChange={this.changeHandler}
+            onKeyDown={zipHandler}
+          />
+        </InputGroup>
+      </Form>
     );
   }
 }
