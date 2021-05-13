@@ -3,6 +3,7 @@ const nodeFetch = require('node-fetch')
 const { TODAY, TOMORROW, INVALID_ZIP_CODE } = require('../constants/constants')
 
 const fetch = async (url) => {
+  logger.info(url)
   const res = await nodeFetch(url)
 
   return res.json()
@@ -76,7 +77,9 @@ const mapToDegreeUnit = (unit) => {
     C: 'metric'
   }
 
-  return units[unit]
+  const desiredUnit = units[unit]
+
+  return desiredUnit || units.F
 }
 
 const getAverageWeather = (hours) => {
